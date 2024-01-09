@@ -3,6 +3,9 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
+apply from: '../gradle/dependencies_koin.gradle'
+
+
 android {
     namespace 'fr.erwandhe.rawg_api'
     compileSdk 34

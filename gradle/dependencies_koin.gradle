@@ -1,0 +1,10 @@
+ext {
+    koinVersion = "3.5.3"
+}
+
+dependencies {
+    implementation "io.insert-koin:koin-core:$koinVersion"
+    implementation "io.insert-koin:koin-android:$koinVersion"
+
+    // Ajoute d'autres dépendances Koin selon tes besoins
+}
