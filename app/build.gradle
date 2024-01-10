@@ -10,6 +10,10 @@ android {
     namespace 'fr.erwandhe.rawg_api'
     compileSdk 34
 
+    viewBinding {
+        enabled = true
+    }
+
     defaultConfig {
         applicationId "fr.erwandhe.rawg_api"
         minSdk 24
