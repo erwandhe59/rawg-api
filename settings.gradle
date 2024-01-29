@@ -15,4 +15,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "rawg-api"
 include ':app'
-include ':game-list'
+include ':game-list-feature:game-list-ui'
+include ':game-list-feature:game-list-business'
+

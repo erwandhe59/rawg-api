@@ -3,8 +3,8 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
-apply from: '../gradle/default_build.gradle'
-apply from: '../gradle/dependencies_koin.gradle'
+apply from: '../../gradle/default_build.gradle'
+apply from: '../../gradle/dependencies_koin.gradle'
 
 android {
     namespace 'com.example.game_list'
