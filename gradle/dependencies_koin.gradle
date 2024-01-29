@@ -5,6 +5,7 @@ ext {
 dependencies {
     implementation "io.insert-koin:koin-core:$koinVersion"
     implementation "io.insert-koin:koin-android:$koinVersion"
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
     // Ajoute d'autres dépendances Koin selon tes besoins
 }
