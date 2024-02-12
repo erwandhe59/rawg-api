@@ -1,9 +1,9 @@
 package fr.erwandhe.rawg_api.koin
 
+import com.example.game_list.GameListViewModel
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val appModule = module {
-    // Déclare ici tes composants Koin, tels que les ViewModels, les repositories, etc.
-    // Exemple :
-    // viewModel { MyViewModel(get()) }
+    viewModel { GameListViewModel() }
 }
