@@ -1,4 +1,4 @@
-package com.example.game_list
+package com.example.game_list.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.game_list.R
+import com.example.game_list.models.Game
 
 class GameAdapter(private val gamesList: List<Game>) : RecyclerView.Adapter<GameAdapter.GameViewHolder>() {
 

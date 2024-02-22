@@ -1,4 +1,4 @@
-package com.example.game_list
+package com.example.game_list.models
 
 data class Game(
     val title: String,

@@ -6,6 +6,7 @@ dependencies {
     implementation "io.insert-koin:koin-core:$koinVersion"
     implementation "io.insert-koin:koin-android:$koinVersion"
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation project(':game-list-feature:game-list-business')
 
     // Ajoute d'autres dépendances Koin selon tes besoins
 }

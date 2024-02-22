@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.game_list.adapters.GameAdapter
 import com.example.game_list.databinding.FragmentGameBinding
+import com.example.game_list.viewholder.GameListViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 

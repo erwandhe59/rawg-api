@@ -1,7 +1,9 @@
-package com.example.game_list
+package com.example.game_list.viewholder
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.game_list.R
+import com.example.game_list.models.Game
 
 class GameListViewModel : ViewModel() {
     private val games = MutableLiveData<List<Game>>()
