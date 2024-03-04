@@ -8,4 +8,8 @@ apply from: '../../gradle/dependencies_koin.gradle'
 
 android {
     namespace 'com.example.game_list'
+
+    buildFeatures {
+        viewBinding true
+    }
 }

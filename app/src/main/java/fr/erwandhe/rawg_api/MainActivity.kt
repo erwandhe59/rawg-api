@@ -11,7 +11,7 @@ import org.koin.core.context.GlobalContext.startKoin
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(fr.erwandhe.rawg_api.R.layout.activity_main)
+        setContentView(R.layout.activity_main)
 
         startKoin {
             androidLogger()

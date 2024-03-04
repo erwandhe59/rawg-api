@@ -9,6 +9,10 @@ apply from: '../gradle/default_build.gradle'
 
 android {
     namespace 'fr.erwandhe.rawg_api'
+
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {

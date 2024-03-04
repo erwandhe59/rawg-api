@@ -4,8 +4,8 @@ plugins {
 }
 
 apply from:'../../gradle/default_build.gradle'
+apply from: '../../gradle/dependencies_koin.gradle'
 
 android {
     namespace 'com.example.game_list_business'
-
 }
