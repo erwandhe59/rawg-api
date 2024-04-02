@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.game_list.adapters.GameAdapter
 import com.example.game_list.databinding.FragmentGameBinding
-import com.example.game_list.viewmodel.GameListViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class GameFragment : Fragment() {
@@ -17,9 +16,7 @@ class GameFragment : Fragment() {
 
     private val gameListViewModel: GameListViewModel by viewModel()
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentGameBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -32,22 +29,21 @@ class GameFragment : Fragment() {
 
     private fun setupRecyclerView() {
         binding.gamesRecyclerView.layoutManager = LinearLayoutManager(context)
+        binding.gamesRecyclerView.adapter = GameAdapter(emptyList())
     }
 
     private fun observeViewModel() {
-        gameListViewModel.getGames().observe(viewLifecycleOwner) { games ->
-            binding.gamesRecyclerView.adapter = GameAdapter(games)
+        gameListViewModel.games.observe(viewLifecycleOwner) { games ->
+            (binding.gamesRecyclerView.adapter as GameAdapter).updateData(games)
         }
-
-        // Ajoutez ici l'observation d'un potentiel état de chargement ou d'erreur
-        // Exemple :
-        // gameListViewModel.isLoading.observe(viewLifecycleOwner) { isLoading ->
-        //     if (isLoading) {
-        //         // Afficher un indicateur de chargement
-        //     } else {
-        //         // Cacher l'indicateur de chargement
-        //     }
-        // }
+        gameListViewModel.isLoading.observe(viewLifecycleOwner) { isLoading ->
+            binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+        }
+        gameListViewModel.errorMessage.observe(viewLifecycleOwner) { message ->
+            if (!message.isNullOrEmpty()) {
+                // Affichez votre message d'erreur ici, par exemple avec un Toast
+            }
+        }
     }
 
     override fun onDestroyView() {

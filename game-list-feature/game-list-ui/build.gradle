@@ -13,3 +13,7 @@ android {
         viewBinding true
     }
 }
+
+dependencies {
+implementation project(':game-list-feature:game-list-business')
+}

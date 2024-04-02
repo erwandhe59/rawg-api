@@ -1,5 +1,6 @@
 package com.example.game_list.adapters
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +11,7 @@ import com.bumptech.glide.Glide
 import com.example.game_list.R
 import com.example.game_list.domain.models.Game
 
-class GameAdapter(private val gamesList: List<Game>) : RecyclerView.Adapter<GameAdapter.GameViewHolder>() {
+class GameAdapter(private var gamesList: List<Game>) : RecyclerView.Adapter<GameAdapter.GameViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GameViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.game_item, parent, false)
@@ -34,8 +35,14 @@ class GameAdapter(private val gamesList: List<Game>) : RecyclerView.Adapter<Game
             descriptionTextView.text = game.description
             // Utilisez Glide pour charger l'image à partir de l'URL
             Glide.with(itemView.context)
-                .load(game.imageUrl)
+                .load(game.imageUrl) // Fournit une image par défaut si imageUrl est null
                 .into(imageView)
         }
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun updateData(newGames: List<Game>) {
+        gamesList = newGames
+        notifyDataSetChanged() // Notifie que les données ont changé pour rafraîchir la vue
     }
 }

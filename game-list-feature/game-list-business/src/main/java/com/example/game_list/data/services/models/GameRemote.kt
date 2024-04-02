@@ -1,4 +1,7 @@
 package com.example.game_list.data.services.models
 
-class GameRemote {
-}
+data class GameRemote(
+    val title: String,
+    val description: String?,
+    val backgroundImage: String?,
+)
