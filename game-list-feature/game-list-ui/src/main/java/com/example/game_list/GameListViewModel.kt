@@ -17,16 +17,19 @@ class GameListViewModel(private val useCase: GetGamesUseCase) : ViewModel() {
         loadGames()
     }
 
-    private fun loadGames(page: Int = 1, pageSize: Int = 20) { // Ajout des valeurs par défaut
+    private fun loadGames(page: Int = 1, pageSize: Int = 20) {
         isLoading.value = true
+        Log.d("GameListViewModel", "Loading games: page=$page, pageSize=$pageSize")
         viewModelScope.launch {
             try {
                 useCase.execute(page, pageSize).collect { gamesList ->
+                    Log.d("GameListViewModel", gamesList.toString())
                     games.postValue(gamesList)
-                    Log.d("Games", gamesList.toString())
+                    Log.d("GameListViewModel", "Games loaded: ${gamesList.size}")
                     isLoading.postValue(false)
                 }
             } catch (e: Exception) {
+                Log.e("GameListViewModel", "Error loading games", e)
                 errorMessage.postValue(e.message)
                 isLoading.postValue(false)
             }

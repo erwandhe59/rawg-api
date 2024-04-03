@@ -1,6 +1,7 @@
 package com.example.game_list.adapters
 
 import android.annotation.SuppressLint
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,6 +21,7 @@ class GameAdapter(private var gamesList: List<Game>) : RecyclerView.Adapter<Game
 
     override fun onBindViewHolder(holder: GameViewHolder, position: Int) {
         val currentItem = gamesList[position]
+        Log.d("GameAdapter", "Binding game: ${currentItem.name}")
         holder.bind(currentItem)
     }
 
@@ -28,14 +30,12 @@ class GameAdapter(private var gamesList: List<Game>) : RecyclerView.Adapter<Game
     class GameViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val imageView: ImageView = itemView.findViewById(R.id.gameImage)
         private val titleTextView: TextView = itemView.findViewById(R.id.gameTitle)
-        private val descriptionTextView: TextView = itemView.findViewById(R.id.gameDescription)
 
         fun bind(game: Game) {
-            titleTextView.text = game.title
-            descriptionTextView.text = game.description
+            titleTextView.text = game.name
             // Utilisez Glide pour charger l'image à partir de l'URL
             Glide.with(itemView.context)
-                .load(game.imageUrl) // Fournit une image par défaut si imageUrl est null
+                .load(game.backgroundImage) // Fournit une image par défaut si imageUrl est null
                 .into(imageView)
         }
     }
