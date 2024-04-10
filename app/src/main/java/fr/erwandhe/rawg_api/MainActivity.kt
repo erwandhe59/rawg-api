@@ -3,7 +3,7 @@ package fr.erwandhe.rawg_api
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.game_list.GameFragment
-import fr.erwandhe.rawg_api.koin.appModule
+import fr.erwandhe.rawg_api.profiles.allModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.GlobalContext.startKoin
@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         startKoin {
             androidLogger()
             androidContext(this@MainActivity)
-            modules(appModule)
+            modules(allModule)
         }
 
         supportFragmentManager.beginTransaction()
