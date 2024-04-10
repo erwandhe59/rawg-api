@@ -24,7 +24,7 @@ val repositoryModule = module {
 }
 
 val useCaseModule = module {
-    single<GetGamesUseCase>(named("GetGamesUseCase")) {
+    factory<GetGamesUseCase>(named("GetGamesUseCase")) {
         GetGamesUseCaseImpl(get(named("GameRepository")))
     }
 }
