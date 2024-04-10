@@ -25,12 +25,12 @@ class GameListViewModel(private val useCase: GetGamesUseCase) : ViewModel() {
                 useCase.execute(page, pageSize).collect { gamesList ->
                     Log.d("GameListViewModel", gamesList.toString())
                     games.postValue(gamesList)
-                    Log.d("GameListViewModel", "Games loaded: ${gamesList.size}")
                     isLoading.postValue(false)
+                    Log.d("GameListViewModel", "Games loaded: ${gamesList.size}")
                 }
             } catch (e: Exception) {
                 Log.e("GameListViewModel", "Error loading games", e)
-                errorMessage.postValue(e.message)
+                errorMessage.postValue(e.message ?: "Unknown error")
                 isLoading.postValue(false)
             }
         }

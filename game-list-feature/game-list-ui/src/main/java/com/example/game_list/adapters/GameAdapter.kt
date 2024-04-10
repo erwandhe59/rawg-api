@@ -33,10 +33,12 @@ class GameAdapter(private var gamesList: List<Game>) : RecyclerView.Adapter<Game
 
         fun bind(game: Game) {
             titleTextView.text = game.name
-            // Utilisez Glide pour charger l'image à partir de l'URL
+            // Utilisez Glide pour charger l'image à partir de l'URL avec un placeholder et une gestion d'erreur
             Glide.with(itemView.context)
-                .load(game.backgroundImage) // Fournit une image par défaut si imageUrl est null
-                .into(imageView)
+                .load(game.backgroundImage) // Charge l'image depuis l'URL
+                .placeholder(R.drawable.loading) // Affiche cette image pendant le chargement
+                .error(R.drawable.error) // Affiche cette image en cas d'erreur de chargement
+                .into(imageView) // Affiche l'image dans l'ImageView
         }
     }
 

@@ -1,10 +1,6 @@
-ext {
-    koinVersion = "3.5.3"
-}
-
 dependencies {
-    implementation "io.insert-koin:koin-core:$koinVersion"
-    implementation "io.insert-koin:koin-android:$koinVersion"
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    // Ajoute d'autres dépendances Koin selon tes besoins
+    implementation "io.insert-koin:koin-core:3.5.3"
+    implementation "io.insert-koin:koin-android:3.5.3"
+    implementation 'androidx.room:room-common:2.6.1'
+    implementation 'androidx.room:room-ktx:2.6.1'
 }

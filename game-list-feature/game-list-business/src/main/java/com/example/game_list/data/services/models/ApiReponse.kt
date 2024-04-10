@@ -9,14 +9,11 @@ data class ApiResponse(
         fun map(from: ApiResponse): List<Game> {
             return from.results.map {
                 Game(
+                    id = it.id,
                     name = it.name,
                     backgroundImage = it.backgroundImage
                 )
             }
         }
-        }
     }
-
-
-//il faut que le json soit une liste de ce type
-//Liste premier objet
+}

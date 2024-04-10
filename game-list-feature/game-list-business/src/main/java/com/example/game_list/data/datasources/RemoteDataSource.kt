@@ -6,5 +6,5 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.coroutines.flow.Flow
 
 interface RemoteDataSource {
-    suspend fun getGames(page: Int, pageSize: Int): Flow<List<Game>>
+    suspend fun getGames(page: Int, pageSize: Int): List<Game>
 }

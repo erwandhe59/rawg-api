@@ -7,6 +7,6 @@ import org.koin.dsl.module
 
 val getGamesUseCaseProfile = module {
     single<GetGamesUseCase>(named("getGameUseCase")) {
-        GetGamesUseCaseImpl(gameRepository = get(named("mainGameRepository")))
+        GetGamesUseCaseImpl(gameRepository = get(named("GameRepository")))
     }
 }
