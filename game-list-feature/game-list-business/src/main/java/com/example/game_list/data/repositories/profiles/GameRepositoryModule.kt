@@ -7,6 +7,6 @@ import org.koin.core.qualifier.named
 
 val repositoryModule = module {
     single<GameRepository>(named("GameRepository")) {
-        GameRepositoryImpl(get(named("RemoteDataSource")), get())
+        GameRepositoryImpl(get(named("RemoteDataSource")), get(named("LocalDataSource")))
     }
 }

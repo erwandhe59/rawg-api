@@ -14,13 +14,8 @@ class RemoteDataSourceImpl(private val service: RawgService) : RemoteDataSource 
             Log.d("RemoteDataSourceImpl", "Emitting $response games")
             ApiResponse.ApiReponseMapper.map(response)
         } catch (e: Exception) {
-            Log.e("RemoteDataSourceImpl", "Error fetching games", e)
-            emptyList<Game>()
+            Log.e("RemoteDataSourceImpl", "Error fetching games: ${e.message}", e)
+            emptyList()
         }
     }
 }
-
-//Repo qui crée le flow, et moi qui récupère l'information de manière asynchrone côté remote et local
-
-//mon local me retourne une liste de jeux
-//

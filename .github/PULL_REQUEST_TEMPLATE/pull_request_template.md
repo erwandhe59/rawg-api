@@ -1,11 +1,25 @@
 # Description du Changement
-Besoin d'aide pour les modules (myAppModules)
+Koin fonctionnel, application qui se lance, mais erreur lors du possage en local.
 
-## Type de changement
-- [ ] Ajout des noms
-- [ ] Utilisation des noms dans les autres modules
+## Descriptif erreur
+- [ ] Jeux qui se sauvegarde en remote, mais une fois le passage en local -> erreurs.
 
 ## Autres informations
+
+Côté remote :
 ```
-* Instance creation error : could not create instance for '[Factory:'com.example.game_list.GameListViewModel']': org.koin.core.error.InstanceCreationException: Could not create instance for '[Singleton:'com.example.game_list.domain.usecases.GetGamesUseCase',qualifier:GetGamesUseCase]'
+[GameEntity(id=28, name=Red Dead Redemption 2, backgroundImage=https://media.rawg.io/media/games/511/5118aff5091cb3efec399c808f8c598f.jpg),.......
+Fetching all games from DB
+Saving games to DB: 20
+Games saved to DB
 ```
+
+Côté local :
+```
+[GameEntity(id=28, name=Red Dead Redemption 2, backgroundImage=https://media.rawg.io/media/games/511/5118aff5091cb3efec399c808f8c598f.jpg),.......
+Fetching all games from DB
+Error fetching games: Unable to resolve host "api.rawg.io": No address associated with hostname
+Saving games to DB: 0
+Games saved to DB
+```
+

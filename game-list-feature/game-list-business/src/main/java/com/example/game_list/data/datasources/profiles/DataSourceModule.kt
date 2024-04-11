@@ -9,5 +9,5 @@ import org.koin.dsl.module
 
 val dataSourceModule = module {
     single<RemoteDataSource>(named("RemoteDataSource")) { RemoteDataSourceImpl(get(named("RawgService"))) }
-    single<LocalDataSource>(named("LocalDataSource")) { LocalDataSourceImpl(get()) }
+    single<LocalDataSource>(named("LocalDataSource")) { LocalDataSourceImpl(get(named("GameDao"))) }
 }
